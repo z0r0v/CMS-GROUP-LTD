@@ -1,6 +1,7 @@
 <template>
     <div class="rate">
-        <input type="text" :value="rateUSD" v-on:change="getRate()">
+        <label for="rateUSD">{{rateText}}</label>
+        <input id="rateUSD" type="text" :value="rateUSD" v-on:change="getRate()">
     </div>
     <div class="product-component">
         <table v-for="(name, idx) in namesJ" :key="idx">
@@ -72,7 +73,8 @@
             return {
                 namesJ,
                 goods,
-                rateUSD: 2.5,
+                rateUSD: 20,
+                rateText:"Введите курс от 20 до 80:",
                 nId: 'Нет ID',
                 BYN: 'руб.',
                 nameText: 'Наименование товара и описание',
@@ -86,6 +88,7 @@
                 arrayCart: [],
                 minQtyVal: 1,
                 url: 'https://www.cbr-xml-daily.ru/daily_json.js',
+                time: 1500,
             }
         },
         methods: {
@@ -174,7 +177,13 @@
                 }
             },
             getRate: function () {
-                this.rateUSD = Number(event.target.value);
+
+                if (Number(event.target.value) >= 20 && Number(event.target.value) <= 80) {
+                    this.rateUSD = Number(event.target.value);
+                }else {
+                    alert("Превышен максимально возможный предел курса ввалюты");
+                }
+
             }
         },
     }
@@ -185,6 +194,12 @@
     .rate {
         width: 100%;
         margin-bottom: 100px;
+        label {
+           padding-right: 10px;
+        }
+        #rateUSD {
+            width: 2%;
+        }
     }
     .button-primary {
         all: unset;
