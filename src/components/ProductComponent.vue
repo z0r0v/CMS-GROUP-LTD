@@ -62,13 +62,21 @@
     </div>
 </template>
 <script>
+
+
     import dataJ from '../assets/tets/data.json';
     import namesJ from '../assets/tets/names.json';
 
     const goods = dataJ.Value.Goods;
 
     export default {
-        name: "ProductsComponetn",
+
+        // Чтобы выполнить задание со звездочкой мне необходимо:
+        //хранить, два объекта, prevJSON и currentJSON, и сравнивать,
+        //или надо сделать компонент, который будет хранит данные, для этого в Vue используют Vuex,
+        //сделать главный компонент, который будет менять JSON, и отдавать его пропсами в дочерние компоненты.
+
+        name: "ProductsComponent",
         data() {
             return {
                 namesJ,
@@ -183,7 +191,6 @@
                 }else {
                     alert("Превышен максимально возможный предел курса ввалюты");
                 }
-
             }
         },
     }
