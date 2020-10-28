@@ -1,25 +1,23 @@
 <template>
-    <div id="app">
-        <ProductComponent></ProductComponent>
-    </div>
+  <div id="app">
+    <img alt="Vue logo" src="./assets/logo.png">
+    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  </div>
 </template>
 
 <script>
+import HelloWorld from './components/HelloWorld.vue'
 
-import ProductComponent from './components/ProductComponent.vue'
 export default {
   name: 'App',
   components: {
-      ProductComponent,
-  },
+    HelloWorld
+  }
 }
 </script>
 
 <style>
 #app {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -27,10 +25,4 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-
-    .no-display {
-        display: none;
-    }
-
-
 </style>

@@ -1,4 +1,4 @@
-# cms_group_ltd
+# cms_g_ltd
 
 ## Project setup
 ```
