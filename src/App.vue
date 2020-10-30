@@ -1,7 +1,6 @@
 <template>
     <div id="app">
-        <span v-on:click="getData">123</span>
-        <List v-bind:content="data"></List>
+        <List :content="data.products"></List>
     </div>
 </template>
 
