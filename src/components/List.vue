@@ -2,9 +2,7 @@
     <div class="product-list">
         <div class="product-list__item" v-for="(item, index) in content" :key="index">
             <ProductCart
-                    :name="item.name"
-                    :description="item.description"
-                    :cost="item.cost"
+                    :data="item"
             ></ProductCart>
         </div>
 
