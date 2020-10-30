@@ -19,12 +19,14 @@
         ],
         data() {
             return {
-                noV:"no value",
+                noV: "no value",
             }
         },
         methods: {
             addToCart: function () {
-                this.inCart.push(this.data);
+                if (!this.inCart.includes(this.data)) {
+                    this.inCart.push(this.data);
+                }
             }
         }
     }
