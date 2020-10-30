@@ -1,20 +1,34 @@
 <template>
-    <div>
-        <span v-on:click="getData">getData</span>
+    <div class="product-list">
+        <div class="product-list__item" v-for="(item, index) in content" :key="index">
+            <ProductCart
+                    :name="item.name"
+                    :description="item.description"
+                    :cost="item.cost"
+            ></ProductCart>
+        </div>
+
     </div>
 </template>
-
 <script>
+    import ProductCart from "./ProductCart";
     export default {
         name: "List",
-        methods: {
-            getData: function () {
-                console.log(this.data);
-            }
-        }
+        components: {
+            ProductCart,
+        },
+        props: [
+            "content"
+        ],
     }
 </script>
 
-<style scoped>
-
+<style lang="scss">
+    .product-list {
+        display: flex;
+        flex-wrap: wrap;
+        &__item {
+            width: 25%;
+        }
+    }
 </style>
