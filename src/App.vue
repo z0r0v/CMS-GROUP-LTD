@@ -1,27 +1,25 @@
 <template>
     <div id="app">
-        <List :content="data.products"></List>
+        <List :content="data.products" :inCart="inCart"></List>
+        <InCartComponent :inCart="inCart"></InCartComponent>
     </div>
 </template>
 
 <script>
     import List from "./components/List";
     import * as data from './assets/data.js';
+    import InCartComponent from "./components/InCartComponent";
     export default {
         name: 'App',
         components: {
             List,
+            InCartComponent
         },
         data() {
             return {
                 data,
+                inCart: [],
             }
-        },
-        methods: {
-            getData: function () {
-                console.log(this.data.products);
-            }
-
         },
     }
 </script>

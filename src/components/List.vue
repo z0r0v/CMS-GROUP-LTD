@@ -3,6 +3,7 @@
         <div class="product-list__item" v-for="(item, index) in content" :key="index">
             <ProductCart
                     :data="item"
+                    :inCart="inCart"
             ></ProductCart>
         </div>
 
@@ -16,7 +17,8 @@
             ProductCart,
         },
         props: [
-            "content"
+            "content",
+            "inCart"
         ],
     }
 </script>

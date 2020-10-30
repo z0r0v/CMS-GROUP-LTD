@@ -6,6 +6,8 @@
         <p v-else>description: {{noV}}</p>
         <p v-if="data.cost">{{data.cost}}</p>
         <p v-else>cost: {{noV}}</p>
+        <button v-on:click="addToCart">Add to cart</button>
+
     </div>
 </template>
 <script>
@@ -13,10 +15,16 @@
         name: "ProductCart",
         props: [
             "data",
+            "inCart",
         ],
         data() {
             return {
                 noV:"no value",
+            }
+        },
+        methods: {
+            addToCart: function () {
+                this.inCart.push(this.data);
             }
         }
     }
@@ -25,6 +33,9 @@
 <style lang="scss">
     .product-cart {
         border: 1px solid black;
+        button {
+            margin-bottom: 20px;
+        }
     }
 </style>
 
