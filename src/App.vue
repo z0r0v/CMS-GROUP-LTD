@@ -1,36 +1,36 @@
 <template>
     <div id="app">
-        <ProductComponent></ProductComponent>
+        <List :content="data.products" :inCart="inCart"></List>
+        <InCartComponent :inCart="inCart"></InCartComponent>
     </div>
 </template>
 
 <script>
-
-import ProductComponent from './components/ProductComponent.vue'
-export default {
-  name: 'App',
-  components: {
-      ProductComponent,
-  },
-}
+    import List from "./components/List";
+    import * as data from './assets/data.js';
+    import InCartComponent from "./components/InCartComponent";
+    export default {
+        name: 'App',
+        components: {
+            List,
+            InCartComponent
+        },
+        data() {
+            return {
+                data,
+                inCart: [],
+            }
+        },
+    }
 </script>
 
 <style>
-#app {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-
-    .no-display {
-        display: none;
+    #app {
+        font-family: Avenir, Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-align: center;
+        color: #2c3e50;
+        margin-top: 60px;
     }
-
-
 </style>
