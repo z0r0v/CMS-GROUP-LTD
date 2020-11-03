@@ -6,8 +6,7 @@
         <p v-else>description: {{noV}}</p>
         <p v-if="data.cost">{{data.cost}}</p>
         <p v-else>cost: {{noV}}</p>
-        <button v-on:click="addToCart">Add to cart</button>
-
+        <button v-on:click="handleAddToCartClick">Add to cart</button>
     </div>
 </template>
 <script>
@@ -16,6 +15,7 @@
         props: [
             "data",
             "inCart",
+            "addToCart",
         ],
         data() {
             return {
@@ -23,9 +23,9 @@
             }
         },
         methods: {
-            addToCart: function () {
-                if (!this.inCart.includes(this.data)) {
-                    this.inCart.push(this.data);
+            handleAddToCartClick: function () {
+                if(this.addToCart) {
+                    this.addToCart(this.data.id);
                 }
             }
         }

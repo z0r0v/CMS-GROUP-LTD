@@ -4,9 +4,9 @@
             <ProductCart
                     :data="item"
                     :inCart="inCart"
+                    :addToCart = "addToCart"
             ></ProductCart>
         </div>
-
     </div>
 </template>
 <script>
@@ -20,6 +20,14 @@
             "content",
             "inCart"
         ],
+        methods: {
+            addToCart: function (id) {
+                const product = this.content.find(item => item.id === id);
+                if (!this.inCart.includes(product)) {
+                    this.inCart.push(product);
+                }
+            }
+        }
     }
 </script>
 
